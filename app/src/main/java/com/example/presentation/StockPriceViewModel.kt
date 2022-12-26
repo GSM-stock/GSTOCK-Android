@@ -1,5 +1,6 @@
 package com.example.presentation
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.API.stock
@@ -12,8 +13,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class StockPriceViewModel @Inject constructor(private val repositoryImpl: RepositoryImpl) :
-    ViewModel() {
+class StockPriceViewModel @Inject constructor(
+    private val repositoryImpl: RepositoryImpl,
+    savedStateHandle: SavedStateHandle
+) : ViewModel() {
+    val stockName: String = savedStateHandle["value"] ?: ""
+
     private val _uiState = MutableStateFlow(StockPriceUiState())
     val uiState: StateFlow<StockPriceUiState> = _uiState
 

@@ -76,4 +76,6 @@ dependencies {
 
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.3'
     implementation group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '5.0.0-alpha.3'
+
+    implementation("androidx.navigation:navigation-compose:2.5.3")
 }
