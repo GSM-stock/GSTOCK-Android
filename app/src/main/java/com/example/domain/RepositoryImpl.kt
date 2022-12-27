@@ -8,5 +8,4 @@ class RepositoryImpl @Inject constructor(val api: stockAPI): com.example.data.Re
     override suspend fun getStockPrice(besDt: String?, itmsNm: String?): stock {
         return api.getStockPrice(basDt = besDt, itmsNm = itmsNm)
     }
-
 }

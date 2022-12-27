@@ -14,11 +14,15 @@ import com.example.k_stock.R
 
 @Composable
 fun MainScreen(viewModel: StockPriceViewModel = hiltViewModel()) {
-    viewModel.getStockPrice("20221223", viewModel.stockName)
+    viewModel.getStockPrice("20221226", viewModel.stockName)
     val uiState = viewModel.uiState.collectAsState()
-    Row {
-        Text(text = uiState.value.data?.response?.body?.items?.item.toString())
+    Column {
+        Text(text = uiState.value.data?.response?.body?.items?.item?.get(0)?.clpr.toString())
+        Text(text = uiState.value.data?.response?.body?.items?.item?.get(0)?.hipr.toString())
+        Text(text = uiState.value.data?.response?.body?.items?.item?.get(0)?.lopr.toString())
+        Text(text = uiState.value.data?.response?.body?.items?.item?.get(0)?.mkp.toString())
     }
+
 }
 
 
