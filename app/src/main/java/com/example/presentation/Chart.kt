@@ -26,7 +26,8 @@ fun Chart() {
 data class Point(val x: Float, val y: Float)
 
 @Composable
-fun testChart(modifier: Modifier = Modifier.size(360.dp, 310.dp)) {
+fun testChart(modifier: Modifier) {
+
     // our values to draw
     val values = listOf(
         Point(0f, 1f),
