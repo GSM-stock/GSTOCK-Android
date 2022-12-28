@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.k_stock.ui.theme.KSTOCKTheme
 import com.example.presentation.MainScreen
 import com.example.presentation.SearchScreen
+import com.example.presentation.testChart
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
