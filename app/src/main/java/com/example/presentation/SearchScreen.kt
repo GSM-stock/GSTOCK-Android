@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.InspectableModifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -38,7 +37,7 @@ fun SearchScreen(navController: NavController) {
             modifier = Modifier
                 .width(250.dp)
                 .height(240.dp)
-                .align(Alignment.CenterHorizontally)
+                .align(CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(80.dp))
         BasicTextField(

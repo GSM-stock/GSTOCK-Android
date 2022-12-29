@@ -17,26 +17,21 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-@Composable
-fun Chart() {
-
-}
-
 //point representation
 data class Point(val x: Float, val y: Float)
 
 @Composable
-fun testChart(modifier: Modifier) {
+fun Chart(modifier: Modifier, yh: List<Float?>) {
 
     // our values to draw
     val values = listOf(
-        Point(0f, 1f),
-        Point(1.5f, 1.2f),
-        Point(2f, 0.9f),
-        Point(2.5f, 2f),
-        Point(3f, 1.3f),
-        Point(3.5f, 3.2f),
-        Point(4f, 0.8f)
+        Point(1F, yh[0] ?: 1F),
+        Point(2F, yh[1] ?: 2F),
+        Point(3F, yh[2] ?: 3F),
+        Point(4F, yh[3] ?: 4F),
+        Point(5F, yh[4] ?: 5F),
+        Point(6F, yh[5] ?: 6F),
+        Point(7F, yh[6] ?: 7F),
     )
     // find max and min value of X, we will need that later
     val minXValues = values.minOf { it.x }
@@ -93,4 +88,3 @@ fun Float.mapValueToDifferentRange (
     outMin: Float,
     outMax: Float
 ) = (this - inMin) * (outMax - outMin) / (inMax - inMin) + outMin
-
