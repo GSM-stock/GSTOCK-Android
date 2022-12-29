@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.k_stock.R
 import com.example.k_stock.ui.theme.*
 
@@ -35,7 +37,8 @@ fun MainScreen(
     viewModel3: StockPriceViewModel3 = hiltViewModel(),
     viewModel4: StockPriceViewModel4 = hiltViewModel(),
     viewModel5: StockPriceViewModel5 = hiltViewModel(),
-    viewModel6: StockPriceViewModel6 = hiltViewModel()
+    viewModel6: StockPriceViewModel6 = hiltViewModel(),
+    navController: NavController
 ) {
     viewModel.getStockPrice("20221227", viewModel.stockName)
     viewModel1.getStockPrice("20221226", viewModel1.stockName)
@@ -100,11 +103,12 @@ fun MainScreen(
                 .background(Color.White)
                 .height(50.dp)
         ) {
-            Icon(
-                imageVector = Icons.Default.ArrowBack,
-                contentDescription = null,
-                modifier = Modifier.padding(start = 15.dp)
-            )
+            IconButton(onClick = { navController.popBackStack() }, modifier = Modifier.padding(start = 15.dp)) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = null
+                )
+            }
             Text(
                 text = uiState.value.data?.response?.body?.items?.item?.get(0)?.itmsNm.toString(),
                 modifier = Modifier.width(335.dp),

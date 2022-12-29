@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(navController = navController, startDestination = "search_screen") {
                     composable("search_screen") { SearchScreen(navController) }
-                    composable("main_screen/{value}") { MainScreen() }
+                    composable("main_screen/{value}") { MainScreen(navController = navController) }
                 }
             }
         }
